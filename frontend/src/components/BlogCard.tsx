@@ -36,7 +36,8 @@ export const BlogCard = ({
         </div>
 
         <div className="text-md font-thin text-neutral-600	">
-            {content.slice(0,100) + "..."}
+            {content.slice(0,100) + "..." }
+            <button className="text-blue-400 font-medium text-sm">Readmore</button> 
         </div>
 
         <div className="text-sm text-neutral-600 font-thin pt-4">

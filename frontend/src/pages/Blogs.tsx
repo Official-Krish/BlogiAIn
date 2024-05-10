@@ -1,5 +1,6 @@
 import { Appbar } from "../components/Appbar"
 import { BlogCard } from "../components/BlogCard"
+import { BlogSkeleton } from "../components/Blogskeleton";
 import { useBlogs } from "../hooks";
 
 export const Blogs = () => {
@@ -7,7 +8,8 @@ export const Blogs = () => {
     // Add skeleton
     if(Loading){
         return <div>
-            Loading ...
+            <Appbar/>
+            <BlogSkeleton/>
         </div>
     }
     return <div>
@@ -15,9 +17,9 @@ export const Blogs = () => {
         <div className="flex justify-center">
         <div className=" max-w-xl">
             {Blogs.map(blog => <BlogCard
-        authorName = {"Krish Anand"}
-        title = {"How to learn React How to learn ReactHow to learn React How to learn React"}
-        content = {"Deep dive into React Deep dive into React Deep dive into React Deep dive into React Deep dive into React"}  
+        authorName = {blog.author.name || "Anonymus"} 
+        title = {blog.title}
+        content = {blog.content}  
         publishedDate = {"9 May 2024"} 
         />
         )}
