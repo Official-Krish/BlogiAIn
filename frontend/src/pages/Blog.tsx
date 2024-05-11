@@ -10,7 +10,7 @@ export const Blog = () => {
       id: id || ""
   });
 
-  if (loading || !blog) {
+  if (loading) {
       return <div>
           <Appbar />
           <BlogSkeleton/>

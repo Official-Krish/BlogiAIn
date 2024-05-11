@@ -12,6 +12,10 @@ export const Blogs = () => {
             <div  className="flex justify-center">
                 <div>
                     <BlogSkeleton/>
+                    <BlogSkeleton/>
+                    <BlogSkeleton/>
+                    <BlogSkeleton/>
+                    <BlogSkeleton/>
                 </div>
             </div>
         </div>
