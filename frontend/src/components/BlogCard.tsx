@@ -34,7 +34,7 @@ export const BlogCard = ({ authorName, title, content, publishedDate, id }: Blog
 		>
 			<div className="col-span-12 md:col-span-9 md:px-4">
 				<div className="flex items-center gap-4">
-					<Avatar name={authorName || ""} />
+					<Avatar name={authorName || "Anonymous"} />
 					<div>
 						<span className="font-extralight">{authorName}</span> ·{" "}
 						<span className="font-thin text-slate-600"> Publish date Feature will add soon</span>
@@ -59,13 +59,14 @@ export function Avatar ({
 	name,
 	onClick,
 }: {
-	name: string;
+	name: any;
 	onClick?: MouseEventHandler<HTMLDivElement>;
 }) {
 	return (
-		<div
+        
+		<div 
 			onClick={onClick}
-			className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-200 hover:bg-gray-50 rounded-full"
+			className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-200 hover:bg-gray-50 rounded-full cursor-pointer"
 		>
 			<span className="font-medium text-gray-600">
 				{name.split(" ")?.[0]?.[0]}
@@ -82,3 +83,4 @@ function ArticleImage({ uniqueId }: { uniqueId: number }) {
 		</object>
 	);
 }
+
