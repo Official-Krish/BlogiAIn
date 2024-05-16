@@ -18,12 +18,11 @@ interface BlogCardDetails{
     authorName : string 
     title : string;
     content : string;
-    publishedDate : string;
     id : number;
 }
 
 
-export const BlogCard = ({ authorName, title, content, publishedDate, id }: BlogCardDetails) => {
+export const BlogCard = ({ authorName, title, content, id }: BlogCardDetails) => {
 	// split and slice combination is added so that the string doesn't get trimmed in middle of a word
 	const quillContent = getPlainTextFromHTML(content).split(" ").slice(0, 40).join(" ") + "...";
 
