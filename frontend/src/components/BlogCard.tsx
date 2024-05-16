@@ -18,11 +18,12 @@ interface BlogCardDetails{
     authorName : string 
     title : string;
     content : string;
+    publishedDate : string;
     id : number;
 }
 
 
-export const BlogCard = ({ authorName, title, content, id }: BlogCardDetails) => {
+export const BlogCard = ({ authorName, title, content, publishedDate, id }: BlogCardDetails) => {
 	// split and slice combination is added so that the string doesn't get trimmed in middle of a word
 	const quillContent = getPlainTextFromHTML(content).split(" ").slice(0, 40).join(" ") + "...";
 
@@ -36,7 +37,7 @@ export const BlogCard = ({ authorName, title, content, id }: BlogCardDetails) =>
 					<Avatar name={authorName || "Anonymous"} />
 					<div>
 						<span className="font-extralight">{authorName}</span> ·{" "}
-						<span className="font-thin text-slate-600"> Publish date Feature will add soon</span>
+						<span className="font-thin text-slate-600"> {publishedDate}</span>
 					</div>
 				</div>
 				<div className="text-xl font-bold pt-4">{title}</div>
