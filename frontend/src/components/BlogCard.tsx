@@ -69,8 +69,8 @@ export function Avatar ({
 			className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-gray-200 hover:bg-gray-50 rounded-full cursor-pointer"
 		>
 			<span className="font-medium text-gray-600">
-				{name.split(" ")?.[0]?.[0]}
-				{name?.split(" ")?.[1]?.[0]}
+			{name ? (name.split(" ")[0]?.[0] ?? '') : ''}
+			{name && name.split(" ").length > 1 ? (name.split(" ")[1]?.[0] ?? '') : ''}
 			</span>
 		</div>
 	);
