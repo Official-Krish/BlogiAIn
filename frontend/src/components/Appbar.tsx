@@ -48,6 +48,9 @@ function ProfileBox() {
     localStorage.removeItem("token");
     navigate("/");
   };
+  const goToBookmarks = () => {
+    navigate("/bookmarks");
+  };
 
 
   return (
@@ -56,6 +59,7 @@ function ProfileBox() {
       {show && (
         <div className="absolute -bottom-24 -left-16 shadow-lg p-4 bg-gray-50 border border-gray-100 z-50 w-[160px]">
           <div className="flex flex-col gap-3 px-4 py-2">
+            <div onClick={goToBookmarks}>Bookmarks</div>
             <div onClick={logout}>Logout</div>
           </div>
           <div className="flex flex-col gap-3 px-4 py-2">

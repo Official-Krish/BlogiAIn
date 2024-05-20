@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import axios from "axios";
 import { backend_url } from "../config";
+import { useNavigate } from "react-router-dom";
 
 
 export interface Blog {
@@ -57,3 +58,31 @@ export const useBlog = ({ id }: { id: string }) => {
     }
 
 }
+
+export const useBookmarks = () => {
+	const navigate = useNavigate();
+	const [loading, setLoading] = useState(true);
+	const [bookmarks, setBookmarks] = useState([]);
+
+	useEffect(() => {
+		async function fetchBookmarks() {
+			const token = localStorage.getItem("token");
+			if (!token) {
+				navigate("/signin");
+			}
+			const response = await axios.get(`${backend_url}/api/v1/bookmark`, {
+				headers: {
+					Authorization: token,
+				},
+			});
+			setBookmarks(response.data.payload);
+			setLoading(false);
+		}
+		fetchBookmarks();
+	}, []);
+
+	return {
+		loading,
+		bookmarks,
+	};
+};
