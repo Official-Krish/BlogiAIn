@@ -24,6 +24,7 @@ export const Blog = () => {
         
   }
   return <div>
+      <Appbar />
       <FullBlog/>
   </div>
 }
