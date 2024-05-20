@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Avatar } from "./BlogCard";
 import { Link, useNavigate } from "react-router-dom";
+import WriteIcon from "./icons/WriteIcon";
 
 
 interface AppbarProps {
@@ -21,10 +22,13 @@ export const Appbar = ({ skipAuthCheck = false }: AppbarProps) => {
       {isUserLoggedIn ? (
         <div className="flex gap-4 md:gap-8">
           <Link to="/publish">
-                <button className="mt-2.5 text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">
-                    New
-                </button>
-            </Link>
+            <div
+            typeof="text"
+              className="focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 font-medium flex items-center gap-2 rounded-lg text-sm px-5 me-2 mb-2 mx-12 py-5"
+            >
+              <WriteIcon /> Write
+            </div>
+          </Link>
           <ProfileBox />
         </div>
       ) : (
