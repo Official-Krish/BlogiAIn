@@ -16,7 +16,7 @@ export const Authen = ({type}: {type : "signup" | "signin"}) =>{
             const Response = await axios.post(`${backend_url}/api/v1/user/${type === "signup" ? "signup" : "signin"}`, postInputs);
             const {jwt} = await Response.data;
             localStorage.setItem("token", jwt);
-            navigate("/blogs");
+            navigate("/");
         }catch(e){
             alert("Incorrect Credentials")
         }

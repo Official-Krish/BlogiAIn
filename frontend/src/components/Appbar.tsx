@@ -56,6 +56,15 @@ function ProfileBox() {
     navigate("/bookmarks");
   };
 
+  const goToProfile = () => {
+    // const userLocalStorage = localStorage.getItem("user");
+    // if (userLocalStorage) {
+    //   const userInfo = JSON.parse(userLocalStorage);
+    //   navigate(`/${userInfo.id}`);
+    // }
+  navigate("/profile")
+  };
+
 
   return (
     <div className="relative cursor-pointer mt-2.5">
@@ -63,6 +72,7 @@ function ProfileBox() {
       {show && (
         <div className="absolute -bottom-24 -left-16 shadow-lg p-4 bg-gray-50 border border-gray-100 z-50 w-[160px]">
           <div className="flex flex-col gap-3 px-4 py-2">
+            <div onClick={goToProfile}>Profile</div>
             <div onClick={goToBookmarks}>Bookmarks</div>
             <div onClick={logout}>Logout</div>
           </div>

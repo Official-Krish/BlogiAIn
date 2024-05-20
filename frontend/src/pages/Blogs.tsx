@@ -4,6 +4,7 @@ import { BlogSkeleton } from "../components/Blogskeleton";
 import { Footer } from "../components/Footer";
 import { useBlogs } from "../hooks";
 
+
 export const Blogs = () => {
     const { loading, blogs } = useBlogs();
 

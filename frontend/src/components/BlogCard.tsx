@@ -15,11 +15,11 @@ import "react-quill/dist/quill.bubble.css";
 import { getPlainTextFromHTML } from "../utils/string";
 
 interface BlogCardDetails{
-    authorName : string 
+    authorName : string;
     title : string;
     content : string;
     publishedDate : string;
-    id : number;
+    id : any;
 }
 
 
