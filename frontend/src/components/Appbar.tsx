@@ -6,8 +6,9 @@ import WriteIcon from "./icons/WriteIcon";
 
 interface AppbarProps {
   skipAuthCheck?: boolean;
+  pageActions?: JSX.Element;
+  hideWriteAction?: boolean;
 }
-
 export const Appbar = ({ skipAuthCheck = false }: AppbarProps) => {
   const navigate = useNavigate();
   const isUserLoggedIn = localStorage.getItem("token");

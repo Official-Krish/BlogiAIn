@@ -9,6 +9,7 @@ import { Publish } from './pages/Publish'
 import { Home } from './pages/Home'
 import Bookmarks from './pages/Bookmarks'
 import User from './pages/User'
+import Edit from './pages/Edit'
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
         <Route path="/" element={<Home />}/>
         <Route path="/bookmarks" element={<Bookmarks />}/>
         <Route path="/:id" element={<User />} />
+        <Route path="/edit/:id" element={<Edit />} />
       </Routes>
       </BrowserRouter>
     </>
