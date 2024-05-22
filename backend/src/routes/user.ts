@@ -9,7 +9,10 @@ export const userRouter = new Hono<{
     Bindings: {
         DATABASE_URL: string;
         JWT_SECRET: string;
-    }
+    };
+    Variables: {
+      userId: string;
+    };
 }>();
 
 userRouter.post('/signup', async (c) => {
@@ -114,5 +117,49 @@ userRouter.get("/:id", async (c) => {
     });
   } catch (ex) {
     return c.status(403);
+  }
+});
+
+userRouter.get("/", async (c) => {
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env.DATABASE_URL,
+  }).$extends(withAccelerate());
+
+  try {
+    const users = await prisma.user.findMany();
+    return c.json({
+      payload: users,
+      message: "All users",
+    });
+  } catch (ex) {
+    return c.status(403);
+  }
+});
+
+userRouter.post("/updateDetail", async (c) => {
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env.DATABASE_URL,
+  }).$extends(withAccelerate());
+  const body = await c.req.json();
+  const userId = c.get("userId");
+
+  if (body.userId !== userId) {
+    c.status(400);
+    return c.json({ error: "Unable to access this endpoint" });
+  }
+  try {
+    const post = await prisma.user.update({
+      where: {
+        id: userId,
+      },
+      data: body.details,
+
+    });
+    return c.json({
+      id: post.id,
+    });
+  } catch (ex) {
+    c.status(403);
+    return c.json({ error: "Something went wrong " });
   }
 });

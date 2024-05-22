@@ -58,12 +58,12 @@ function ProfileBox() {
   };
 
   const goToProfile = () => {
-    // const userLocalStorage = localStorage.getItem("user");
-    // if (userLocalStorage) {
-    //   const userInfo = JSON.parse(userLocalStorage);
-    //   navigate(`/${userInfo.id}`);
-    // }
-  navigate("/profile")
+    const userLocalStorage = localStorage.getItem("user");
+    if (userLocalStorage) {
+      const userInfo = JSON.parse(userLocalStorage);
+      navigate(`/${userInfo.id}`);
+    }
+  // navigate("/profile")
   };
 
 

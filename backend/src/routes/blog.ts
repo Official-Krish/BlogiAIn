@@ -135,3 +135,4 @@ bookRouter.get('/:id', async (c) => {
 
 	return c.json(post);
 })
+

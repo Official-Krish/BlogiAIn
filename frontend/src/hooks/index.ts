@@ -84,7 +84,7 @@ export const useBlog = ({ id }: { id: string }) => {
 		return response.data.message;
 	}
 
-	async function editBlog({ id, title, content }: { id: string; title: string; content: string }) {
+	async function editBlog({ id, title, content }: {  id: string; title: string; content: string }) {
 		const token = localStorage.getItem("token");
 		if (!token) {
 			navigate("/signin");
@@ -92,7 +92,7 @@ export const useBlog = ({ id }: { id: string }) => {
 		setLoading(true);
 		try {
 			const response = await axios.put(
-				`${backend_url}/api/v1/blog`,
+				`${backend_url}/api/v1/blog/${id}`,
 				{
 					id: id,
 					title: title,
