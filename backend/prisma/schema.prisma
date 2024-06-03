@@ -16,7 +16,6 @@ model User {
   bookmarks Bookmark[]
   claps     Clap[]
   comments  Comment[]
-  tags      Tag[]
 
 }
 
@@ -30,7 +29,7 @@ model Post {
   bookmarks Bookmark[]
   claps         Clap[]
   comments      Comment[]
-  tags          Tag[]
+  tagsOnPost    TagsOnPost[]
 }
 
 model Bookmark {
@@ -58,9 +57,16 @@ model Comment {
 }
 
 model Tag {
-  id     String @id @default(uuid())
-  user   User   @relation(fields: [userId], references: [id])
-  userId String
-  post   Post   @relation(fields: [postId], references: [id])
-  postId String
+  id            String @id @default(uuid())
+  tagName       String
+  creationDate  DateTime     @default(now())
+  tagsOnPost    TagsOnPost[]
+}
+
+model TagsOnPost {
+  id      String @id @default(uuid())
+  tag     Tag   @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  tagId   String
+  post    Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  postId  String
 }

@@ -3,6 +3,8 @@ import { userRouter } from './routes/user';
 import { bookRouter } from './routes/blog';
 import { cors } from 'hono/cors'
 import { bookmarkRouter } from './routes/bookmarks';
+import { clapRouter } from './routes/clap';
+import { tagRouter } from './routes/tag';
 
 export const app = new Hono<{
   Bindings: {
@@ -14,5 +16,7 @@ app.use('/*', cors())
 app.route('/api/v1/user', userRouter)
 app.route('/api/v1/blog', bookRouter)
 app.route('/api/v1/bookmark', bookmarkRouter)
+app.route('/api/v1/clap', clapRouter)
+app.route('/api/v1/tag', tagRouter)
 
 export default app

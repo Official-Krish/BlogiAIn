@@ -11,3 +11,5 @@ bun.lockb
 
 
 .env
+
+wrangler.toml
