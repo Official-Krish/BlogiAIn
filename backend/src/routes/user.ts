@@ -15,62 +15,96 @@ export const userRouter = new Hono<{
     };
 }>();
 
-userRouter.post('/signup', async (c) => {
-    const prisma = new PrismaClient({
-      datasourceUrl: c.env.DATABASE_URL,
-    }).$extends(withAccelerate());
-  
-    const body = await c.req.json();
-    const { success } = signupInput.safeParse(body);
-    if (success){
-      const user = await prisma.user.create({
-        data: {
-          email: body.email,
-          password: body.password,
-        },
-      });
-    
-      const token = await sign({ id: user.id }, c.env.JWT_SECRET)
-      return c.json({
-        jwt: token
-      })
-    }else{
-      c.status (411);
-      return c.json({
-        msg : "inputs are not correct"
-      });
-    }
-    
-})
-  
-userRouter.post('/signin', async (c) => {
-    const prisma = new PrismaClient({
-    //@ts-ignore
-        datasourceUrl: c.env?.DATABASE_URL	,
-    }).$extends(withAccelerate());
+userRouter.post("/signup", async (c) => {
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env.DATABASE_URL,
+  }).$extends(withAccelerate());
 
-    const body = await c.req.json();
-    const { success } = signinInput.safeParse(body);
-    if (!success){
-      c.status (411);
-      return c.json({
-        msg : "inputs are not correct"
-      })
+  const body = await c.req.json();
+  const { success } = signupInput.safeParse(body);
+  if (!success) {
+    c.status(411);
+    return c.json({
+      message: "Invalid email or password.",
+    });
+  }
+  try {
+    const user = await prisma.user.findFirst({
+      where: {
+        email: body.email,
+      },
+    });
+    if (user) {
+      c.status(409);
+      return c.json({ error: "User with the email already exists" });
+    }
+    const newUser = await prisma.user.create({
+      data: {
+        email: body.email,
+        password: body.password,
+        name: body.name
+      },
+    });
+    const token = await sign({ id: newUser.id }, c.env.JWT_SECRET);
+    c.status(200);
+    return c.json({
+      message: "Sign up successful",
+      jwt: token,
+      user: {
+        id: newUser.id,
+        email: newUser.email,
+        name: newUser.name
+      }
+    });
+  } catch (ex) {
+    return c.status(403);
+  }
+});
+  
+userRouter.post("/signin", async (c) => {
+  const prisma = new PrismaClient({
+    datasourceUrl: c.env.DATABASE_URL,
+  }).$extends(withAccelerate());
+
+  const body = await c.req.json();
+  const { success } = signinInput.safeParse(body);
+  if (!success) {
+    c.status(411);
+    return c.json({
+      message: "Invalid email or password.",
+    });
+  }
+  try {
+    const email = await prisma.user.findUnique({
+      where: {
+        email: body.email,
+      },
+    });
+    if (!email) {
+      c.status(403);
+      return c.json({ error: "Account with this email does not exist." });
     }
     const user = await prisma.user.findUnique({
-        where: {
-            email: body.email,
-    password: body.password
-        }
+      where: {
+        email: body.email,
+        password: body.password,
+      },
     });
-
     if (!user) {
-        c.status(403);
-        return c.json({ error: "user not found" });
+      c.status(403);
+      return c.json({ error: "Email and Password Mismatch" });
     }
-    const jwt = await sign({ id: user.id }, c.env.JWT_SECRET);
-    return c.json({ jwt });
-})
+
+    const token = await sign({ id: user.id }, c.env.JWT_SECRET);
+    return c.json({
+      jwt: token,
+      user: user,
+      message: "Sign in successful",
+    });
+  } catch (ex) {
+    return c.status(403);
+  }
+});
 
 
 userRouter.use("/*", async (c, next) => {
