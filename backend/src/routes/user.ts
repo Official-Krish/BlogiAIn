@@ -107,10 +107,11 @@ userRouter.post("/signin", async (c) => {
 });
 
 
+
 userRouter.use("/*", async (c, next) => {
   try {
     const header = c.req.header("authorization") || "";
-    const token = header.split(" ")[1];
+    const token = header;
     const user = await verify(token, c.env.JWT_SECRET);
     if (user) {
       c.set("userId", user.id);
@@ -127,13 +128,12 @@ userRouter.use("/*", async (c, next) => {
   }
 });
 
-
 userRouter.get("/:id", async (c) => {
   const prisma = new PrismaClient({
     datasourceUrl: c.env.DATABASE_URL,
   }).$extends(withAccelerate());
-  const userId = await c.req.param("id");
-  const authorizedUserId = c.get("userId");
+  const userId = c.req.param("id");
+  // const authorizedUserId = c.get("userId");
   try {
     const user = await prisma.user.findFirst({
       where: {
@@ -146,13 +146,14 @@ userRouter.get("/:id", async (c) => {
     }
     return c.json({
       user,
-      isAuthorizedUser: authorizedUserId === userId,
+      isAuthorizedUser: userId,
       message: "Found user",
     });
   } catch (ex) {
     return c.status(403);
   }
 });
+
 
 userRouter.get("/", async (c) => {
   const prisma = new PrismaClient({
