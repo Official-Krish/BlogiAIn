@@ -12,10 +12,10 @@ import ToastWrapper from '../components/ToastWrapper';
 import AutogrowTextarea from '../components/AutogrowTextarea';
 import { useAI } from '../hooks/blog';
 import GenerateAIBtn from '../components/GenerateAIBtn';
-import PublishTags from '../components/PublishTags';
 import { htmlTagRegex } from '../utils/string';
 import useAutoSaveDraft from '../hooks/useAutoSaveDraft';
 import { videoHandler, modules } from '../utils/videoHandler';
+import { useNavigate } from 'react-router-dom';
 
 // Register the custom video handler with Quill toolbar
 Quill.register('modules/customToolbar', function (quill: any) {
@@ -23,19 +23,20 @@ Quill.register('modules/customToolbar', function (quill: any) {
 });
 
 const Publish = () => {
-  const { draft, deleteDraft } = useAutoSaveDraft('new_article', () => ({ title, content }));
+  const navigate = useNavigate();
+  const { draft, } = useAutoSaveDraft('new_article', () => ({ title, content }));
 
   const { generateBlog } = useAI();
   const [title, setTitle] = useState(draft?.title || '');
   const [content, setContent] = useState(draft?.content || '');
-  const [blogId, setBlogId] = useState('');
 
+  
   const writingPadRef = useRef<ReactQuill>(null);
-
+  
   async function publishArticle() {
-    if (title.trim() && content.trim()) {
+    
       try {
-        const response = await axios.post(
+        await axios.post(
           `${backend_url}/api/v1/blog`,
           {
             title,
@@ -47,14 +48,9 @@ const Publish = () => {
             },
           }
         );
-        // Clear drafts when saved on server
-        deleteDraft();
-        setBlogId(response?.data?.id);
-      } catch (error) {
-        toast.error('Failed to publish the article. Please try again.');
-      }
-    } else {
-      toast.error('Post title & content cannot be empty.');
+        navigate("/blog/:id");
+    } catch (error) {
+      toast.error('Failed to publish the article. Please try again.');
     }
   }
 
@@ -74,7 +70,9 @@ const Publish = () => {
         pageActions={
           <div className="ml-2 flex gap-4">
             {FF_ENABLE_AI && title.trim().length > 10 && <GenerateAIBtn onClickHandler={generateArticle} />}
-            <PublishTags onClick={publishArticle} blogId={blogId} title={title} content={content} />
+            <button onClick={publishArticle} type="submit">
+              Publish post
+            </button>
           </div>
         }
       />
