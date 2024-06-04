@@ -10,7 +10,7 @@ const UserAboutTab = () => {
 
   const submitUserDetails = () => {
     if (editUserDetails) {
-      editUserDetails(editDetails, true);
+      editUserDetails(editDetails);
     }
   };
   return (

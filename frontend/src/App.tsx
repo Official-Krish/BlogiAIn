@@ -26,6 +26,7 @@ function App() {
         <Route path="/bookmarks" element={<Bookmarks />}/>
         <Route path="/:id" element={<User />} />
         <Route path="/edit/:id" element={<Edit />} />
+        <Route path="/profile/:id" element={<User />} />
       </Routes>
       </BrowserRouter>
     </>
