@@ -1,9 +1,8 @@
-import Logo  from "../assets/logo2.png"
+
 
 export const Footer = ()  => {
     return  <div className="bg-grey pt-6 ">
         <div className="text-white font-bold text-3xl ">
-        {/* <img src={Logo} height={300} width={300}/>  */}
         <div className="pl-5">
            figuringoutLife
         </div>
