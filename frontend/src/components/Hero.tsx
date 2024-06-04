@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Hero = () => {
 	return (
-		<div className="w-screen h-[80vh] bg-gradient-to-r from-amber-200 to-yellow-500 flex flex-col justify-center items-center">
+		<div className="w-[100] h-screen bg-gradient-to-r from-amber-200 to-yellow-500 flex flex-col justify-center items-center">
 			<h1 className="text-4xl md:text-7xl tracking-wide font-extrabold text-center md:text-left">
 				Stay Curious.
 			</h1>

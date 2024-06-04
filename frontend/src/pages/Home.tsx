@@ -7,7 +7,7 @@ export const Home = () => {
 		<div>
 			<Appbar />
 			<Hero />
-      <About />
+      {/* <About /> */}
 	  <Footer/>
 		</div>
 	);
