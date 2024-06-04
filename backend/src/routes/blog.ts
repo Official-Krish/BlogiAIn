@@ -159,3 +159,47 @@ bookRouter.post("/generate", async (c) => {
 	}
 });
 
+bookRouter.get("/bulkUser/:id", async (c) => {
+	const prisma = new PrismaClient({
+		datasourceUrl: c.env?.DATABASE_URL	,
+	}).$extends(withAccelerate());
+	try {
+	  const userId = c.req.param("id");
+	  const posts = await prisma.post.findMany({
+		where: {
+		  authorId: userId,
+		},
+		select: {
+		  content: true,
+		  title: true,
+		  id: true,
+		  author: {
+			select: {
+			  name: true,
+			},
+		  },
+		  published: true,
+		  tagsOnPost: {
+			select: {
+			  tag: {
+				select: {
+				  id: true,
+				  tagName: true,
+				}
+			  }
+			}
+		  }
+		},
+	  });
+	  return c.json({
+		posts: posts,
+	  });
+	} catch (e) {
+	  console.log(e);
+	  c.status(411);
+	  return c.json({
+		message: "Error while fetching post",
+	  });
+	}
+  });
+
