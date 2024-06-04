@@ -187,7 +187,9 @@ userRouter.post("/updateDetail", async (c) => {
       where: {
         id: userId,
       },
-      data: body.details,
+      data: {
+        details: body.details,
+      }
 
     });
     return c.json({
