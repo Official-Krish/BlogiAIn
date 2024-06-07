@@ -16,6 +16,32 @@ export const bookRouter = new Hono<{
     }
 }>();
 
+
+bookRouter.get("/search", async (c) => {
+	try {
+	  const keyword = c.req.query("keyword") || "";
+	  const prisma = new PrismaClient({
+		datasourceUrl: c.env?.DATABASE_URL	,
+	}).$extends(withAccelerate());
+	  const postQuery = buildPostSearchQuery(keyword);
+	  const userQuery = buildUserSearchQuery(keyword);
+	  const [posts, users] = await Promise.all([
+		prisma.post.findMany(postQuery),
+		prisma.user.findMany(userQuery),
+	  ]);
+	  return c.json({
+		posts: posts,
+		users: users,
+	  });
+	} catch (e) {
+	  c.status(411);
+	  return c.json({
+		message: "Error while fetching post",
+		error: e,
+	  });
+	}
+  });
+
 bookRouter.use("/*", async (c, next) => {
     const authHeader = c.req.header("authorization") || "";
     const user = await verify (authHeader, c.env.JWT_SECRET)
