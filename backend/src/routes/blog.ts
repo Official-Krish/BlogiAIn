@@ -4,6 +4,7 @@ import { withAccelerate } from "@prisma/extension-accelerate";
 import { Hono } from "hono";
 import { verify } from "hono/jwt";
 import { generateArticle } from "../genAI";
+import { buildPostSearchQuery, buildUserSearchQuery } from "../query";
 
 export const bookRouter = new Hono<{
     Bindings: {
@@ -40,7 +41,7 @@ bookRouter.get("/search", async (c) => {
 		error: e,
 	  });
 	}
-  });
+});
 
 bookRouter.use("/*", async (c, next) => {
     const authHeader = c.req.header("authorization") || "";
