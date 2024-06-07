@@ -2,6 +2,7 @@ import { Appbar } from "../components/Appbar"
 import { BlogCard } from "../components/BlogCard"
 import { BlogSkeleton } from "../components/Blogskeleton";
 import { Footer } from "../components/Footer";
+import ScrollToTopButton from "../components/ScrollToTop";
 import { useBlogs } from "../hooks";
 
 
@@ -36,6 +37,7 @@ export const Blogs = () => {
                     publishedDate={"May 2024"}
                 />)}
             </div>
+            <ScrollToTopButton/>
         </div>
         <Footer/>
     </div>
