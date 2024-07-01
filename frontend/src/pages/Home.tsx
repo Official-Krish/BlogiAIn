@@ -7,7 +7,7 @@ export const Home = () => {
 		<div>
 			<Appbar />
 			<Hero />
-	  <Footer/>
+	  		<Footer/>
 		</div>
 	);
 };

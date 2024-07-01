@@ -3,9 +3,9 @@
 export const Footer = ()  => {
     return  <div className="bg-grey pt-6 ">
         <div className="text-white font-bold text-3xl ">
-        <div className="pl-5">
-           figuringoutLife
-        </div>
+            <div className="pl-5">
+                BlogiAIn
+            </div>
         </div>
         <div className="text-white flex justify-center mt-5">
             <div className="mb-20 flex justify-center mt-6">
