@@ -17,6 +17,8 @@ import EditIcon from "../components/icons/Edit";
 import ClapIcon from "../components/icons/Clap";
 import { Avatar } from "./BlogCard";
 import { BlogSkeleton } from "./Blogskeleton";
+import { getPlainTextFromHTML } from "../utils/string";
+import VoiceOver from "./VoiceOver";
 
 export const FullBlog = () => {
 	const { id } = useParams();
@@ -37,6 +39,10 @@ export const FullBlog = () => {
 				<div className="text-xl md:text-4xl font-extrabold py-4 line-clamp-4">{blog?.title}</div>
 				<AuthorBox name={blog?.author?.name} details={"IDk"} />
 				<ActionBox />
+				<div className="pt-4">
+					<VoiceOver content={getPlainTextFromHTML(blog?.content)} />
+				</div>
+
 				<div className="py-4">
 					<ReactQuill value={blog?.content} readOnly={true} theme={"bubble"} />
 				</div>
@@ -170,6 +176,8 @@ const ActionBox = () => {
 				onConfirm={onConfirmUnbookmark}
 				onCloseModal={() => setOpenUnbookmarkModal(false)}
 			/>
+
+
 		</div>
 	);
 };
