@@ -19,6 +19,7 @@ import { Avatar } from "./BlogCard";
 import { BlogSkeleton } from "./Blogskeleton";
 import { getPlainTextFromHTML } from "../utils/string";
 import VoiceOver from "./VoiceOver";
+import ChatModule from "./ChatModule";
 
 export const FullBlog = () => {
 	const { id } = useParams();
@@ -46,6 +47,7 @@ export const FullBlog = () => {
 				<div className="py-4">
 					<ReactQuill value={blog?.content} readOnly={true} theme={"bubble"} />
 				</div>
+				<ChatModule />
 			</div>
 		</div>
 	);
