@@ -27,12 +27,16 @@
 A React frontend and Cloudflare workers backend application offering features that replicate Medium, the popular blogging platform. 
 
 Features:
-* Token based Authentication
-* Create, Read, Update, Delete Blogs
-* Bookmark, Like, Search, Filter Blogs
-* Generate Blog using AI
-* Autosave
-* User profiles
+* Token based Authentication.
+* Create, Read, Update, Delete Blogs.
+* Bookmark, Like, Search, Filter Blogs.
+* User profiles.
+* Comment.
+
+Unique Features:
+* Generate Blog using AI.
+* Chat with AI to deepen your understanding around a particular blog.
+* Voice over for blogs, so you can listen to blogs while working out / having food.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
