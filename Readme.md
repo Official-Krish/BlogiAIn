@@ -6,7 +6,7 @@
   </a>
   
 
-  <h2 align="center">FiguringoutLife</h2>
+  <h2 align="center">BlogiAIn</h2>
 
   <p align="center">
     A Fullstack blog Website with Generative AI!
