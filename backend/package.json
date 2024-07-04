@@ -1,18 +1,24 @@
 {
   "scripts": {
     "dev": "wrangler dev src/index.ts",
-    "deploy": "wrangler deploy --minify src/index.ts"
+    "deploy": "wrangler deploy --minify src/index.ts",
+    "db:seed": "npx prisma db seed"
+  },
+  "prisma": {
+    "seed": "ts-node --compiler-options {\"module\":\"CommonJS\"} prisma/seed.ts"
   },
   "dependencies": {
     "@krishanand/medium-common": "^1.0.0",
-    "@prisma/client": "^5.13.0",
-    "@prisma/extension-accelerate": "^1.0.0",
+    "@prisma/client": "^5.16.1",
+    "@prisma/extension-accelerate": "^1.1.0",
+    "dotenv": "^16.4.5",
     "hono": "^4.3.3",
     "openai": "^4.47.3",
     "prisma": "^5.13.0"
   },
   "devDependencies": {
     "@cloudflare/workers-types": "^4.20240403.0",
+    "ts-node": "^10.9.2",
     "wrangler": "^3.47.0"
   }
 }
