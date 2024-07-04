@@ -30,6 +30,18 @@ interface UserQueryBase {
 	orderBy?: Prisma.Enumerable<Prisma.PostOrderByWithRelationInput>;
 }
 
+interface TagQueryBase {
+	select: {
+		id: boolean;
+		tagName: boolean;
+	};
+	where?: any;
+	skip?: number;
+	take?: number;
+	orderBy?: Prisma.Enumerable<Prisma.PostOrderByWithRelationInput>;
+}
+
+
 export const buildPostSearchQuery = (keyword: string): SearchQueryWithWhere => {
 	let baseQuery: SearchQueryWithWhere = {
 		select: {
@@ -78,6 +90,25 @@ export const buildUserSearchQuery = (keyword: string): UserQueryBase => {
 		},
 		where: {
 			name: {
+				contains: keyword,
+				mode: "insensitive",
+			},
+		},
+		skip: 0,
+		take: 5,
+	};
+
+	return baseQuery;
+};
+
+export const buildTagSearchQuery = (keyword: string): TagQueryBase => {
+	let baseQuery: TagQueryBase = {
+		select: {
+			id: true,
+			tagName: true,
+		},
+		where: {
+			tagName: {
 				contains: keyword,
 				mode: "insensitive",
 			},

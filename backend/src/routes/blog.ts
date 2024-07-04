@@ -4,7 +4,8 @@ import { withAccelerate } from "@prisma/extension-accelerate";
 import { Hono } from "hono";
 import { verify } from "hono/jwt";
 import { generateArticle } from "../genAI";
-import { buildPostSearchQuery, buildUserSearchQuery } from "../query";
+import { buildPostSearchQuery, buildTagSearchQuery, buildUserSearchQuery } from "../query";
+import { getDBInstance } from "../db/db";
 
 export const bookRouter = new Hono<{
     Bindings: {
@@ -18,21 +19,23 @@ export const bookRouter = new Hono<{
 }>();
 
 
+
 bookRouter.get("/search", async (c) => {
 	try {
 	  const keyword = c.req.query("keyword") || "";
-	  const prisma = new PrismaClient({
-		datasourceUrl: c.env?.DATABASE_URL	,
-	}).$extends(withAccelerate());
+	  const prisma = getDBInstance(c);
 	  const postQuery = buildPostSearchQuery(keyword);
 	  const userQuery = buildUserSearchQuery(keyword);
-	  const [posts, users] = await Promise.all([
+	  const tagQuery = buildTagSearchQuery(keyword);
+	  const [posts, users, tags] = await Promise.all([
 		prisma.post.findMany(postQuery),
 		prisma.user.findMany(userQuery),
+		prisma.tag.findMany(tagQuery),
 	  ]);
 	  return c.json({
 		posts: posts,
 		users: users,
+		tags: tags,
 	  });
 	} catch (e) {
 	  c.status(411);
@@ -41,7 +44,8 @@ bookRouter.get("/search", async (c) => {
 		error: e,
 	  });
 	}
-});
+  });
+  
 
 bookRouter.use("/*", async (c, next) => {
     const authHeader = c.req.header("authorization") || "";
