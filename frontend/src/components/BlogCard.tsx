@@ -76,11 +76,11 @@ export function Avatar ({
 	);
 }
 
-function ArticleImage({ uniqueId }: { uniqueId: number }) {
+function ArticleImage({ uniqueId }: { uniqueId: string }) {
 	return (
-		<object data={`https://source.unsplash.com/random/150x150?sig=${uniqueId}`} type="image/jpeg">
+		<object data={`https://picsum.photos/300/300?random=${uniqueId}`} type="image/jpeg" className="w-full">
 			<div className="bg-gray-50 w-[100%] animate-pulse aspect-square"></div>
-		</object>
+	  	</object>
 	);
 }
 
