@@ -7,7 +7,7 @@ import { generateArticle } from "../genAI";
 import { buildPostSearchQuery, buildTagSearchQuery, buildUserSearchQuery } from "../query";
 import { getDBInstance } from "../db/db";
 
-export const bookRouter = new Hono<{
+export const blogRouter = new Hono<{
     Bindings: {
         DATABASE_URL: string;
         JWT_SECRET: string;
@@ -20,34 +20,34 @@ export const bookRouter = new Hono<{
 
 
 
-bookRouter.get("/search", async (c) => {
+blogRouter.get("/search", async (c) => {
 	try {
-	  const keyword = c.req.query("keyword") || "";
-	  const prisma = getDBInstance(c);
-	  const postQuery = buildPostSearchQuery(keyword);
-	  const userQuery = buildUserSearchQuery(keyword);
-	  const tagQuery = buildTagSearchQuery(keyword);
-	  const [posts, users, tags] = await Promise.all([
-		prisma.post.findMany(postQuery),
-		prisma.user.findMany(userQuery),
-		prisma.tag.findMany(tagQuery),
-	  ]);
-	  return c.json({
-		posts: posts,
-		users: users,
-		tags: tags,
-	  });
+		const keyword = c.req.query("keyword") || "";
+		const prisma = getDBInstance(c);
+		const postQuery = buildPostSearchQuery(keyword);
+		const userQuery = buildUserSearchQuery(keyword);
+		const tagQuery = buildTagSearchQuery(keyword);
+		const [posts, users, tags] = await Promise.all([
+			prisma.post.findMany(postQuery),
+			prisma.user.findMany(userQuery),
+			prisma.tag.findMany(tagQuery),
+	  	]);
+		return c.json({
+			posts: posts,
+			users: users,
+			tags: tags,
+		});
 	} catch (e) {
-	  c.status(411);
-	  return c.json({
-		message: "Error while fetching post",
-		error: e,
-	  });
+		c.status(411);
+		return c.json({
+			message: "Error while fetching post",
+			error: e,
+		});
 	}
-  });
+});
   
 
-bookRouter.use("/*", async (c, next) => {
+blogRouter.use("/*", async (c, next) => {
     const authHeader = c.req.header("authorization") || "";
     const user = await verify (authHeader, c.env.JWT_SECRET)
     if (!user) {
@@ -60,7 +60,7 @@ bookRouter.use("/*", async (c, next) => {
     await next()
 })
 
-bookRouter.post('/', async (c) => {
+blogRouter.post('/', async (c) => {
 	const userId = c.get('userId');
 	const prisma = new PrismaClient({
 		datasourceUrl: c.env?.DATABASE_URL	,
@@ -86,7 +86,7 @@ bookRouter.post('/', async (c) => {
 	});
 })
 
-bookRouter.put('/', async (c) => {
+blogRouter.put('/', async (c) => {
 	const userId = c.get('userId');
 	const prisma = new PrismaClient({
 		datasourceUrl: c.env?.DATABASE_URL	,
@@ -115,7 +115,7 @@ bookRouter.put('/', async (c) => {
 });
 
 
-bookRouter.get("/bulk", async(c)=>{
+blogRouter.get("/bulk", async(c)=>{
 	const prisma = new PrismaClient({
 		datasourceUrl: c.env?.DATABASE_URL	,
 	}).$extends(withAccelerate());
@@ -146,7 +146,7 @@ bookRouter.get("/bulk", async(c)=>{
 })
 
 
-bookRouter.get('/:id', async (c) => {
+blogRouter.get('/:id', async (c) => {
 	const id = c.req.param('id');
 	const prisma = new PrismaClient({
 		datasourceUrl: c.env?.DATABASE_URL	,
@@ -169,7 +169,7 @@ bookRouter.get('/:id', async (c) => {
 	return c.json(post);
 })
 
-bookRouter.post("/generate", async (c) => {
+blogRouter.post("/generate", async (c) => {
 	try {
 		if (!c.env.OPENAI_API_KEY) {
 			return c.json({
@@ -190,7 +190,7 @@ bookRouter.post("/generate", async (c) => {
 	}
 });
 
-bookRouter.get("/bulkUser/:id", async (c) => {
+blogRouter.get("/bulkUser/:id", async (c) => {
 	const prisma = new PrismaClient({
 		datasourceUrl: c.env?.DATABASE_URL	,
 	}).$extends(withAccelerate());
