@@ -31,7 +31,7 @@ import { Link } from "react-router-dom";
 // };
 
 
-export const Hero = () => {
+export const Hero = ({ uniqueId }: { uniqueId: string }) => {
 
 	return <div>
 
@@ -44,7 +44,7 @@ export const Hero = () => {
                 Discover the Latest Trends in Tech and Beyond
               </h1>
               <p className="text-muted-foreground md:text-xl text-white">
-                Stay up-to-date with our blog, where we cover the latest news, insights, and expert analysis on a wide
+                Stay up-to-date with BlogiAIn, where we cover the latest news, insights, and expert analysis on a wide
                 range of topics.
               </p>
               <Link
@@ -69,7 +69,7 @@ export const Hero = () => {
                 className="group grid gap-4 rounded-lg bg-card p-4 transition-colors hover:bg-card/80"
                
               >
-                <img src="/placeholder.svg" alt="Blog Post" className="aspect-[4/3] w-full rounded-lg object-cover" />
+                <img src={`https://picsum.photos/300/300?random=web development`} alt="Blog Post" className="aspect-[4/3] w-full rounded-lg object-cover" />
                 <div className="space-y-2">
                   <h3 className="text-lg font-semibold group-hover:underline text-white">The Future of Web Development</h3>
                   <p className="text-muted-foreground line-clamp-2 text-white">
@@ -82,7 +82,7 @@ export const Hero = () => {
                 className="group grid gap-4 rounded-lg bg-card p-4 transition-colors hover:bg-card/80"
                
               >
-                <img src="/placeholder.svg" alt="Blog Post" className="aspect-[4/3] w-full rounded-lg object-cover" />
+                <img src={`https://picsum.photos/300/300?random=AI`} alt="Blog Post" className="aspect-[4/3] w-full rounded-lg object-cover" />
                 <div className="space-y-2">
                   <h3 className="text-lg font-semibold group-hover:underline text-white">The Rise of Artificial Intelligence</h3>
                   <p className="text-muted-foreground line-clamp-2 text-white">
@@ -95,7 +95,7 @@ export const Hero = () => {
                 className="group grid gap-4 rounded-lg bg-card p-4 transition-colors hover:bg-card/80"
                
               >
-                <img src="/placeholder.svg" alt="Blog Post" className="aspect-[4/3] w-full rounded-lg object-cover" />
+                <img src={`https://picsum.photos/300/300?random=sustainable future`} alt="Blog Post" className="aspect-[4/3] w-full rounded-lg object-cover" />
                 <div className="space-y-2">
                   <h3 className="text-lg font-semibold group-hover:underline text-white">The Sustainable Future of Tech</h3>
                   <p className="text-muted-foreground line-clamp-2 text-white">
@@ -108,7 +108,7 @@ export const Hero = () => {
                 className="group grid gap-4 rounded-lg bg-card p-4 transition-colors hover:bg-card/80 text-white"
                
               >
-                <img src="/placeholder.svg" alt="Blog Post" className="aspect-[4/3] w-full rounded-lg object-cover" />
+                <img src={`https://picsum.photos/300/300?random=remote work`} alt="Blog Post" className="aspect-[4/3] w-full rounded-lg object-cover" />
                 <div className="space-y-2">
                   <h3 className="text-lg font-semibold group-hover:underline text-white">The Future of Remote Work</h3>
                   <p className="text-muted-foreground line-clamp-2 text-white">
@@ -121,7 +121,7 @@ export const Hero = () => {
                 className="group grid gap-4 rounded-lg bg-card p-4 transition-colors hover:bg-card/80"
                
               >
-                <img src="/placeholder.svg" alt="Blog Post" className="aspect-[4/3] w-full rounded-lg object-cover" />
+                <img src={`https://picsum.photos/300/300?random=5G technology`} alt="Blog Post" className="aspect-[4/3] w-full rounded-lg object-cover" />
                 <div className="space-y-2">
                   <h3 className="text-lg font-semibold group-hover:underline text-white">The Impact of 5G Technology</h3>
                   <p className="text-muted-foreground line-clamp-2 text-white">
@@ -134,7 +134,7 @@ export const Hero = () => {
                 className="group grid gap-4 rounded-lg bg-card p-4 transition-colors hover:bg-card/80"
                
               >
-                <img src="/placeholder.svg" alt="Blog Post" className="aspect-[4/3] w-full rounded-lg object-cover" />
+                <img src={`https://picsum.photos/300/300?random=cybersecurity`} alt="Blog Post" className="aspect-[4/3] w-full rounded-lg object-cover" />
                 <div className="space-y-2">
                   <h3 className="text-lg font-semibold group-hover:underline text-white">The Future of Cybersecurity</h3>
                   <p className="text-muted-foreground line-clamp-2 text-white">
