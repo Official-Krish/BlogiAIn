@@ -31,7 +31,7 @@ import { Link } from "react-router-dom";
 // };
 
 
-export const Hero = ({ uniqueId }: { uniqueId: string }) => {
+export const Hero = () => {
 
 	return <div>
 
