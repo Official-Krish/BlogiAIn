@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 // const Hero = () => {
 // 	const navigate = useNavigate();
@@ -32,6 +32,7 @@ import { Link } from "react-router-dom";
 
 
 export const Hero = () => {
+  const navigate = useNavigate();
 
 	return <div>
 
@@ -47,13 +48,19 @@ export const Hero = () => {
                 Stay up-to-date with BlogiAIn, where we cover the latest news, insights, and expert analysis on a wide
                 range of topics.
               </p>
-              <Link
-                to="/blogs"
+              <button onClick={ () => {
+                  const token = localStorage.getItem("token");
+                  if (token) {
+                    navigate("/blogs");
+                  } else {
+                    navigate("/signin");
+                  }
+                }}
                 className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-white"
                
               >
                 Read the Blog
-              </Link>
+              </button>
             </div>
           </div>
         </section>

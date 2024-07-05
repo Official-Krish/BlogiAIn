@@ -17,10 +17,10 @@ export const Appbar = ({ skipAuthCheck = false, pageActions, hideWriteAction = f
     navigate('/signin');
   }
   return (
-    <div className="border-b border-slate-100 flex justify-between items-center p-4 md:px-16">
+    <div className="border-b border-slate-100 flex justify-between items-center p-4 md:px-16 bg-zinc-950">
       <div className="flex justify-center items-center gap-4">
         <Link to="/" className="text-xl font-light">
-        <span className="text-gray-700">Blogi</span><span className="text-black">AI</span><span className="text-green-700">n</span>
+        <span className="text-white">Blogi</span><span className="text-white">AI</span><span className="text-green-700">n</span>
         </Link>
         <Search />
       </div>
@@ -49,13 +49,13 @@ export const Appbar = ({ skipAuthCheck = false, pageActions, hideWriteAction = f
           <div className="ml-4">
             <Link
               to="/signup"
-              className="focus:outline-none text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-2.5"
+              className="focus:outline-none border border-gray-700 hover:bg-gray-800 hover:text-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-2.5 bg-white text-black"
             >
               Sign Up
             </Link>
             <Link
               to="/signin"
-              className="ml-4 focus:outline-none text-gray-700 border border-gray-700 hover:bg-gray-800 hover:text-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-2.5"
+              className="ml-4 focus:outline-none border border-gray-700 hover:bg-gray-800 hover:text-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-3xl text-sm px-5 py-2.5 bg-white text-black"
             >
               Sign In
             </Link>
