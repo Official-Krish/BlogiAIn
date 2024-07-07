@@ -2,7 +2,7 @@
 <br />
 <div align="center">
 <a href="https://github.com/Official-Krish/Blog-Website">
-    <img src="frontend/public/Logo2.png" alt="Logo">
+    <img src="frontend/public/Front.png" alt="Logo">
   </a>
   
 
