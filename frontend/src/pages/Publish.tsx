@@ -70,9 +70,7 @@ const Publish = () => {
         pageActions={
           <div className="ml-2 flex gap-4">
             {FF_ENABLE_AI && title.trim().length > 10 && <GenerateAIBtn onClickHandler={generateArticle} />}
-            <button onClick={publishArticle} type="submit">
-              Publish post
-            </button>
+            <button type="button" className="text-white bg-green-700 hover:bg-green-800 focus:outline-none focus:ring-4 focus:ring-green-300 font-medium rounded-full text-sm px-5 py-4 text-center me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800" onClick={publishArticle}>Publish post</button>
           </div>
         }
       />
