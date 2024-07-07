@@ -71,8 +71,9 @@ export const Hero = () => {
               <p className="text-muted-foreground md:text-xl text-white">Explore our latest articles and insights.</p>
             </div>
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
               <Link
-                to="#"
+                to={`/blog/e77d4fa7-85d0-424d-bf60-2eaf1acd11cb`}
                 className="group grid gap-4 rounded-lg bg-card p-4 transition-colors hover:bg-card/80"
                
               >
@@ -85,7 +86,7 @@ export const Hero = () => {
                 </div>
               </Link>
               <Link
-                to="#"
+                to={`/blog/2f5081e4-d277-4ce7-95b7-38b1114a92b7`}
                 className="group grid gap-4 rounded-lg bg-card p-4 transition-colors hover:bg-card/80"
                
               >
@@ -98,7 +99,7 @@ export const Hero = () => {
                 </div>
               </Link>
               <Link
-                to="#"
+                to={`/blog/fde3a8e4-fb60-409c-b6a1-20b6623be928`}
                 className="group grid gap-4 rounded-lg bg-card p-4 transition-colors hover:bg-card/80"
                
               >
@@ -111,7 +112,7 @@ export const Hero = () => {
                 </div>
               </Link>
               <Link
-                to="#"
+                to={`/blog/a3309a8b-eb59-43c7-b9d1-c704a6036a3f`}
                 className="group grid gap-4 rounded-lg bg-card p-4 transition-colors hover:bg-card/80 text-white"
                
               >
@@ -124,7 +125,7 @@ export const Hero = () => {
                 </div>
               </Link>
               <Link
-                to="#"
+                to={`/blog/179f88bf-fa9f-4765-b1b1-3645962aa9a8`}
                 className="group grid gap-4 rounded-lg bg-card p-4 transition-colors hover:bg-card/80"
                
               >
@@ -137,7 +138,7 @@ export const Hero = () => {
                 </div>
               </Link>
               <Link
-                to="#"
+                to={`/blog/2c9549a7-0abc-4bac-af7b-6839f8056848`}
                 className="group grid gap-4 rounded-lg bg-card p-4 transition-colors hover:bg-card/80"
                
               >
