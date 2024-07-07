@@ -14,7 +14,7 @@
     <a href="https://github.com/Official-Krish/Blog-Website"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://blog-website-krish-anands-projects.vercel.app/">View App</a>
+    <a href="https://blogi-a-in-krish-anands-projects.vercel.app/">View App</a>
 
   </p>
 </div>
