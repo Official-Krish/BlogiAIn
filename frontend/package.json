@@ -13,6 +13,7 @@
     "@krishanand/medium-common": "^1.0.0",
     "axios": "^1.6.8",
     "lodash.debounce": "^4.0.8",
+    "lucide-react": "^0.403.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-quill": "^2.0.0",
