@@ -40,10 +40,12 @@ export const FullBlog = () => {
 				<div className="text-xl md:text-4xl font-extrabold py-4 line-clamp-4">{blog?.title}</div>
 				<AuthorBox name={blog?.author?.name} details={"IDk"} />
 				<ActionBox />
-				<div className="pt-4">
+				<div className="pt-4 pb-4">
 					<VoiceOver content={getPlainTextFromHTML(blog?.content)} />
 				</div>
-
+				<object data={`https://picsum.photos/300/300?random`} type="image/jpeg" className="w-full h-3/5 rounded-lg px-28">
+					<div className="bg-gray-50 w-[100%] animate-pulse aspect-square"></div>
+				</object>
 				<div className="py-4">
 					<ReactQuill value={blog?.content} readOnly={true} theme={"bubble"} />
 				</div>
