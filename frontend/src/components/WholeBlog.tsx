@@ -38,7 +38,7 @@ export const FullBlog = () => {
 		<div className="flex flex-col justify-center items-center p-4 md:px-10">
 			<div className="p-4 max-w-[680px]">
 				<div className="text-xl md:text-4xl font-extrabold py-4 line-clamp-4">{blog?.title}</div>
-				<AuthorBox name={blog?.author?.name} details={"IDk"} />
+				<AuthorBox name={blog?.author?.name} details={blog?.author?.details} />
 				<ActionBox />
 				<div className="pt-4 pb-4">
 					<VoiceOver content={getPlainTextFromHTML(blog?.content)} />
@@ -192,7 +192,7 @@ const AuthorBox = ({ name, details }: { name: any, details: string | undefined }
 			<Avatar name={name || "Anonymous"} />
 			<div>
 				<div className="font-bold">{name || "Anonymous"}</div>
-				<div>{details ? details : "An artist at living. My work of art is my life."}</div>
+				<div>{details}</div>
 			</div>
 		</div>
 	</div>
