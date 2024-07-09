@@ -16,7 +16,7 @@ export const Blogs = () => {
         return (
             <div>
                 <Appbar />
-                <div className="flex justify-center">
+                <div className="flex justify-center ">
                     <div>
                         {[...Array(blogsPerPage)].map((_, index) => (
                             <BlogSkeleton key={index} />

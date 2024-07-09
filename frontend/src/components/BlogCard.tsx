@@ -30,9 +30,9 @@ export const BlogCard = ({ authorName, title, content, publishedDate, id }: Blog
 	return (
 		<Link
 			to={`/blog/${id}`}
-			className="blog-card px-4 py-8 w-full md:w-3/6 md:border md:border-gray-200 my-2 rounded-lg bg-white shadow-sm grid grid-cols-12"
+			className="blog-card px-4 py-8 w-full md:w-3/6 md:border md:border-gray-200 my-2 rounded-lg shadow-sm grid grid-cols-12 bg-zinc-300"
 		>
-			<div className="col-span-12 md:col-span-9 md:px-4">
+			<div className="col-span-12 md:col-span-9 md:px-4 bg-zinc-300">
 				<div className="flex items-center gap-4">
 					<Avatar name={authorName || "Anonymous"} />
 					<div>
