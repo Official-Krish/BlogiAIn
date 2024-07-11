@@ -45,7 +45,7 @@ export const Blogs = () => {
     return (
         <div>
             <Appbar />
-            <div className="flex justify-center">
+            <div className="flex justify-center bg-zinc-300">
                 <div className="flex flex-col justify-center items-center mt-4">
                     {currentBlogs.map(blog => (
                         <BlogCard
@@ -59,14 +59,14 @@ export const Blogs = () => {
                     ))}
                     <div className="flex mt-4">
                         <button
-                            className="px-4 py-2 mx-2 mb-4 bg-gray-200 rounded hover:bg-gray-300"
+                            className="px-4 py-2 mx-2 mb-4 bg-gray-100 rounded hover:bg-gray-300"
                             onClick={handlePreviousPage}
                             disabled={currentPage === 1}
                         >
                             Previous
                         </button>
                         <button
-                            className="px-4 py-2 mx-2 mb-4 bg-gray-200 rounded hover:bg-gray-300"
+                            className="px-4 py-2 mx-2 mb-4 bg-gray-100 rounded hover:bg-gray-300"
                             onClick={handleNextPage}
                             disabled={currentPage === totalPages}
                         >
