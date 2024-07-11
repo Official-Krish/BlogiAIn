@@ -34,7 +34,7 @@ export const Appbar = ({ skipAuthCheck = false, pageActions, hideWriteAction = f
               <Link to="/publish">
                 <button
                   type="button"
-                  className="focus:outline-none hover:bg-gray-100 rounded-3xl focus:ring-4 focus:ring-gray-100 font-medium flex items-center gap-2 text-sm px-5 py-2.5"
+                  className="focus:outline-none hover:bg-gray-100 rounded-3xl focus:ring-4 focus:ring-gray-100 font-medium flex items-center gap-2 text-sm px-5 py-2.5 text-white hover:text-black"
                 >
                   <WriteIcon /> Write
                 </button>
