@@ -1,5 +1,3 @@
-
-
 import axios from 'axios';
 import Appbar from '../components/Appbar';
 import { backend_url, FF_ENABLE_AI } from '../config';
