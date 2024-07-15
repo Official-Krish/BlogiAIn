@@ -6,13 +6,13 @@ import { BlogSkeleton } from "../components/Blogskeleton";
 import { Footer } from "../components/Footer";
 import ScrollToTopButton from "../components/ScrollToTop";
 import { useBlogs } from "../hooks";
-import TopicsSlider from '../components/TopicsSlider';
+// import TopicsSlider from '../components/TopicsSlider';
 
 export const Blogs = () => {
     const { loading, blogs } = useBlogs();
     const [currentPage, setCurrentPage] = useState(1);
     const blogsPerPage = 5;
-    const [selectedTopic, setSelectedTopic] = useState<string>('');
+    // const [selectedTopic, setSelectedTopic] = useState<string>('');
 
     if (loading) {
         return (
@@ -47,7 +47,7 @@ export const Blogs = () => {
     return (
         <div>
             <Appbar />
-            <TopicsSlider selectedTopic={selectedTopic} setSelectedTopic={setSelectedTopic}/>
+            {/* <TopicsSlider selectedTopic={selectedTopic} setSelectedTopic={setSelectedTopic}/> */}
             <div className="flex justify-center bg-zinc-300">
                 <div className="flex flex-col justify-center items-center mt-4">
                     {currentBlogs.map(blog => (
