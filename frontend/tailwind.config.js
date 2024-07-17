@@ -8,6 +8,7 @@ export default {
     extend: {
       colors : {
         grey : "#303030",
+        blue : "#102030",
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',

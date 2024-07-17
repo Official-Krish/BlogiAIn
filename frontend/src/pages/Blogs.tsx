@@ -48,7 +48,7 @@ export const Blogs = () => {
         <div>
             <Appbar />
             {/* <TopicsSlider selectedTopic={selectedTopic} setSelectedTopic={setSelectedTopic}/> */}
-            <div className="flex justify-center bg-zinc-300">
+            <div className="flex justify-center bg-blue">
                 <div className="flex flex-col justify-center items-center mt-4">
                     {currentBlogs.map(blog => (
                         <BlogCard
