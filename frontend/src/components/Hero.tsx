@@ -36,7 +36,7 @@ export const Hero = () => {
 
 	return <div>
 
-	<div className="flex flex-col min-h-[100dvh] bg-black">
+	<div className="flex flex-col min-h-[100dvh] bg-darkBlue border-t border-slate-300">
       <main className="flex-1">
         <section className="w-full py-12 md:py-24 lg:py-32 relative">
           <div className="relative container px-4 md:px-6 space-y-6">
@@ -56,7 +56,7 @@ export const Hero = () => {
                     navigate("/signin");
                   }
                 }}
-                className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-white"
+                className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-white mt-16"
                
               >
                 Start Reading
@@ -64,7 +64,7 @@ export const Hero = () => {
             </div>
           </div>
         </section>
-        <section className="w-full py-12 md:py-24 lg:py-32">
+        <section className="w-full py-12 md:py-14 md:pb-24 lg:py-2 lg:pb-32">
           <div className="container px-4 md:px-6 space-y-6">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl text-white">Latest Blog Posts</h2>
