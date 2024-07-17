@@ -1,7 +1,7 @@
 
 
 export const Footer = ()  => {
-    return  <div className="bg-black pt-6 border-t ">
+    return  <div className="bg-blue pt-6 border-t ">
         <div className="text-white font-bold text-3xl ">
             <div className="pl-5">
                 BlogiAIn
