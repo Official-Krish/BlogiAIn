@@ -17,7 +17,7 @@ export const Appbar = ({ skipAuthCheck = false, pageActions, hideWriteAction = f
     navigate('/signin');
   }
   return (
-    <div className="border-b border-slate-100 flex justify-between items-center p-4 md:px-16 bg-zinc-950">
+    <div className="flex justify-between items-center p-4 md:px-16 bg-blue">
       <div className="flex justify-center items-center gap-4">
         <Link to="/" className="text-xl font-light">
         <span className="text-white">Blogi</span><span className="text-white">AI</span><span className="text-green-700">n</span>
