@@ -5,6 +5,7 @@ import SendIcon from './icons/SendIcon';
 import ResetIcon from './icons/ResetIcon';
 import { CHAT_LIMIT } from '../config';
 import { useBlog } from './../hooks';
+import { Loader2 } from 'lucide-react';
 
 const ChatModule = () => {
     const { id } = useParams();
@@ -46,12 +47,12 @@ const ChatModule = () => {
     };
 
     if (loading) {
-        return <div>Loading...</div>;
+        return <div className='bg-blue'><Loader2 className='flex items-center w-10 h-10 text-white animate-spin' /></div>;
     }
 
     if (!userId) {
         return (
-        <div className="mt-8 p-6 bg-white rounded-lg max-w-3xl mx-auto">
+        <div className="mt-8 p-6 bg-blue rounded-lg max-w-3xl mx-auto">
             <hr className="mb-4 border-gray-300" />
             <div className="text-2xl font-semibold mb-4 text-gray-800">Please sign in to ask questions to AI✨</div>
             <button
@@ -65,8 +66,8 @@ const ChatModule = () => {
     }
 
     return (
-        <div className="mt-6 p-6 bg-white rounded-lg max-w-3xl mx-auto">
-        <div className="text-2xl font-semibold mb-6 text-gray-800">Have any doubts? Ask AI.</div>
+        <div className="mt-6 p-6 bg-blue rounded-lg max-w-3xl mx-auto">
+        <div className="text-2xl font-semibold mb-6 text-gray-100">Have any doubts? Ask AI.</div>
         <hr className="mb-6 border-gray-300" />
         <div
             ref={chatContainerRef}
