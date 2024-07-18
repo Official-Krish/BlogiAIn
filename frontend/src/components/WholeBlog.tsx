@@ -13,13 +13,12 @@ import Modal from "../components/Modal";
 import "react-quill/dist/quill.bubble.css";
 import RemoveIcon from "../components/icons/Remove";
 import EditIcon from "../components/icons/Edit";
-
 import ClapIcon from "../components/icons/Clap";
 import { Avatar } from "./BlogCard";
-import { BlogSkeleton } from "./Blogskeleton";
 import { getPlainTextFromHTML } from "../utils/string";
 import VoiceOver from "./VoiceOver";
 import ChatModule from "./ChatModule";
+import { Loader2 } from "lucide-react";
 
 export const FullBlog = () => {
 	const { id } = useParams();
@@ -29,7 +28,7 @@ export const FullBlog = () => {
 	if (loading){
 		return (
 			<div className="flex flex-col justify-center items-center p-4 md:px-10 bg-blue">
-				<BlogSkeleton/>
+				<Loader2 className="w-10 h-10 animate-spin text-white" />
 			</div>
 		)
 	};
