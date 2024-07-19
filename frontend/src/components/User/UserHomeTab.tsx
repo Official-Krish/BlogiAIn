@@ -20,24 +20,26 @@ const UserHomeTab = () => {
   const { blogs, loadingUserBlogs } = useContext(UserProfileContext);
 
   return (
-    <div>
-      {loadingUserBlogs ? (
-        <BlogSkeleton />
-      ) : (
-        <div className="flex flex-col">
-          {blogs && blogs.length > 0 &&
-            blogs.map((blog: BlogType) => (
-              <BlogCard
-                id={blog?.id}
-                authorName={blog?.author.name}
-                publishedDate={blog?.publishedDate}
-                title={blog.title}
-                content={blog.content}
-              />
-            ))}
-        </div>
-      )}
-    </div>
+      <div>
+        {loadingUserBlogs ? (
+          <BlogSkeleton />
+        ) : (
+          <div>
+            <div className="flex flex-col">
+              {blogs && blogs.length > 0 &&
+                blogs.map((blog: BlogType) => (
+                  <BlogCard
+                    id={blog?.id}
+                    authorName={blog?.author.name}
+                    publishedDate={blog?.publishedDate}
+                    title={blog.title}
+                    content={blog.content}
+                  />
+                ))}
+            </div>
+          </div>
+        )}
+      </div>
   );
 };
 
