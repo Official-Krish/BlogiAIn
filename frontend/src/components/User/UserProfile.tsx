@@ -38,7 +38,7 @@ const UserProfile = ({ id }: UserProfileProps) => {
   return (
     <>
       {loadingUser ? (
-        <div className="w-screen h-screen flex justify-center items-center">
+        <div className="w-screen h-screen flex justify-center items-center bg-blue text-white">
           <Spinner />
         </div>
       ) : error ? (
@@ -55,13 +55,13 @@ const UserProfile = ({ id }: UserProfileProps) => {
           }}
         >
           <div>
-            <div className="flex flex-row justify-center">
+            <div className="flex flex-row justify-center bg-blue">
               <div className="flex flex-col w-full p-5 md:p-24 md:w-4/6 md:pl-36">
-                <div className="text-3xl">{currentUser?.name}</div>
+                <div className="text-3xl text-white">{currentUser?.name}</div>
                 <nav className="flex flex-row gap-5 mt-3 border-b">
                   <div
                     className={`cursor-pointer hover:text-black py-3 ${
-                      currentTab === 'Home' ? 'text-black border-b border-black' : 'text-gray-500'
+                      currentTab === 'Home' ? 'border-b border-black text-white' : 'text-white'
                     }`}
                     onClick={() => setCurrentTab('Home')}
                   >
@@ -69,7 +69,7 @@ const UserProfile = ({ id }: UserProfileProps) => {
                   </div>
                   <div
                     className={`cursor-pointer hover:text-black py-3 ${
-                      currentTab === 'About' ? 'text-black border-b border-black' : 'text-gray-500'
+                      currentTab === 'About' ? 'text-white border-b border-black' : 'text-white'
                     }`}
                     onClick={() => setCurrentTab('About')}
                   >
@@ -80,8 +80,8 @@ const UserProfile = ({ id }: UserProfileProps) => {
               </div>
               <div className="border-l border-slate-100 hidden md:block w-2/6 p-8 pr-36">
                 <Avatar name={currentUser?.name || ''} size="large" imageSrc={currentUser?.profilePic} />
-                <div className="text-lg mt-3">{currentUser?.name}</div>
-                <div className="text-sm mt-3">{currentUser?.details}</div>
+                <div className="text-lg mt-3 text-white">{currentUser?.name}</div>
+                <div className="text-sm mt-3 text-white">{currentUser?.details}</div>
               </div>
             </div>
           </div>
