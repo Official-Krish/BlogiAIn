@@ -17,9 +17,9 @@ type BookmarkTabProps = {
 };
 const BookmarkTab = ({ bookmarks }: BookmarkTabProps) => {
   return (
-    <div className="p-4 md:p-10 ">
-      <h1 className="text-2xl font-bold mb-2">Bookmarks</h1>
-      <div className="flex flex-col justify-center items-center bg-gray-50">
+    <div className="p-4 md:p-10 bg-blue">
+      <h1 className="text-2xl font-bold mb-2 text-white">Bookmarks</h1>
+      <div className="flex flex-col justify-center items-center bg-blue h-full">
         {bookmarks.length > 0 &&
           bookmarks.map((bookmark: BlogType) => (
             <BlogCard
@@ -32,7 +32,7 @@ const BookmarkTab = ({ bookmarks }: BookmarkTabProps) => {
           ))}
       </div>
       {bookmarks.length === 0 && (
-        <div className="flex justify-center mt-10">
+        <div className="flex justify-center mt-10 bg-blue">
           <h6 className="text-xl font-bold py-2">
             No bookmarks yet! You can bookmark blogs in the blogs page{" "}
             <Link to="/blogs" className="underline">

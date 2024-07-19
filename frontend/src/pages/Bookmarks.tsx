@@ -2,6 +2,7 @@ import Appbar from "../components/Appbar";
 import Spinner from "../components/Spinner";
 import { useBookmarks } from "../hooks/index";
 import BookmarkTab from "../components/Bookmarktab";
+import { Footer } from "../components/Footer";
 
 const Bookmarks = () => {
   const { bookmarks, loading } = useBookmarks();
@@ -9,11 +10,15 @@ const Bookmarks = () => {
     <>
       <Appbar />
       {loading ? (
-        <div className="w-screen h-screen flex justify-center items-center">
+        <div className="w-screen h-screen flex justify-center items-center bg-blue text-white">
           <Spinner />
         </div>
       ) : (
-        <BookmarkTab bookmarks={bookmarks} />
+        <div className="bg-blue h-full">
+          <BookmarkTab bookmarks={bookmarks}/>
+          <Footer/>
+        </div>
+        
       )}
     </>
   );
