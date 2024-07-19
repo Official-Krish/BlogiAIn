@@ -54,7 +54,7 @@ const UserAboutTab = () => {
         <>
           {FF_IMAGE_UPLOADS && (
             <div>
-              <label>Photo</label>
+              <label className='text-white'>Photo</label>
               <div className="flex py-4">
                 <div className="flex justify-start items-start gap-4">
                   <Avatar size="large" name={editName} imageSrc={preview || currentUser.profilePic} />
@@ -72,7 +72,7 @@ const UserAboutTab = () => {
                       disabled={!editPicture}
                       type="button"
                       onClick={() => setEditPicture(null)}
-                      className="text-red-700 px-4 py-2 border-none disabled:opacity-50"
+                      className="text-red-600 px-4 py-2 border-none disabled:opacity-50"
                     >
                       Remove
                     </button>
@@ -83,7 +83,7 @@ const UserAboutTab = () => {
                       onChange={(e) => e.target.files != null && setEditPicture(e?.target?.files[0])}
                     />
                   </div>
-                  <label className="text-xs">
+                  <label className="text-xs text-white">
                     Recommended: Square JPG, PNG, or GIF, at least 1,000 pixels per side.
                   </label>
                 </div>
