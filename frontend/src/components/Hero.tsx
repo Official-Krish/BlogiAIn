@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
+import { Button } from "./ui/Button";
 
 // const Hero = () => {
 // 	const navigate = useNavigate();
@@ -48,7 +49,7 @@ export const Hero = () => {
                 Stay up-to-date with BlogiAIn, where we cover the latest news, insights, and expert analysis on a wide
                 range of topics.
               </p>
-              <button onClick={ () => {
+              <Button onClick={ () => {
                   const token = localStorage.getItem("token");
                   if (token) {
                     navigate("/blogs");
@@ -56,11 +57,11 @@ export const Hero = () => {
                     navigate("/signin");
                   }
                 }}
-                className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-white mt-16 hover:bg-gray-300"
-               
+                // className="inline-flex h-10 items-center justify-center rounded-md bg-primary px-8 text-sm font-medium text-primary-foreground shadow transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 bg-white mt-16 hover:bg-gray-300"
+                variant="premium" className="text-white hover:bg-emerald-800" rounded="full"
               >
                 Start Reading
-              </button>
+              </Button>
             </div>
           </div>
         </section>
