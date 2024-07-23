@@ -3,13 +3,7 @@ export const Quote = () =>{
         <div className="flex justify-center">
             <div className="max-w-lg ">
                 <div className="text-3xl font-bold">
-                    "The Customer service I received was exceptional. The support team went above and beyond to address my concerns"
-                </div>
-                <div className="max-w-md text-lg font-bold , mt-4">
-                Jules Winnfield
-                </div>
-                <div className="max-w-md text-sm text-gray-500 font-medium">
-                    CEO, Acme Inc
+                    Join us in exploring a tapestry of stories, insights, and reflections, where every post invites you to think deeply, engage meaningfully, and connect with a broader narrative.
                 </div>
             </div>
         </div>
