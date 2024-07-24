@@ -68,11 +68,11 @@ const Publish = () => {
         pageActions={
           <div className="ml-2 flex gap-4">
             {FF_ENABLE_AI && title.trim().length > 10 && title.trim().length <= 30 && (
-              <Button type="button" rounded="full" variant="premium" onClick={generateArticle}>
+              <Button type="button" rounded="full" variant="premium" onClick={generateArticle} className='hover:bg-emerald-800'>
                 Generate using AI
               </Button>
             )}
-              <Button type="button" rounded="full" variant="premium" onClick={publishArticle}>
+              <Button type="button" rounded="full" variant="premium" onClick={publishArticle} className='hover:bg-emerald-800'>
                 Publish post
               </Button>
           </div>
