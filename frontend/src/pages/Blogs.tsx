@@ -8,7 +8,7 @@ import ScrollToTopButton from "../components/ScrollToTop";
 import { useBlogs } from "../hooks";
 // import TopicsSlider from '../components/TopicsSlider';
 
-export const Blogs = () => {
+const Blogs = () => {
     const { loading, blogs } = useBlogs();
     const [currentPage, setCurrentPage] = useState(1);
     const blogsPerPage = 5;
@@ -83,3 +83,5 @@ export const Blogs = () => {
         </div>
     );
 };
+
+export default Blogs;

@@ -5,26 +5,27 @@ import { Spinner } from "../components/Spinner";
 import { FullBlog } from "../components/WholeBlog";
 
 
-export const Blog = () => {
-  const { id } = useParams();
-  const {loading, blog} = useBlog({
-      id: id || ""
-  });
+const Blog = () => {
+    const { id } = useParams();
+    const {loading, blog} = useBlog({
+        id: id || ""
+    });
 
-  if (loading || !blog) {
-      return <div>
-          <Appbar />
-          <div className="h-screen flex flex-col justify-center">
-              
-              <div className="flex justify-center">
-                  <Spinner/>
-              </div>
-          </div>
-      </div>
-        
-  }
-  return <div>
-      <Appbar />
-      <FullBlog/>
-  </div>
+    if (loading || !blog) {
+        return <div>
+            <Appbar />
+            <div className="h-screen flex flex-col justify-center">
+                
+                <div className="flex justify-center">
+                    <Spinner/>
+                </div>
+            </div>
+        </div>
+            
+    }
+    return <div>
+        <Appbar />
+        <FullBlog/>
+    </div>
 }
+export default Blog;

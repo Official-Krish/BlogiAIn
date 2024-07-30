@@ -1,9 +1,7 @@
-
-
 import Login from "../components/Login"
 import { QuoteLogin } from "../components/QuoteLogin"
 
-export const Signin = () =>{
+const Signin = () => {
     return <div>
         <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="grid grid-cols-1 md:grid-cols-2 w-screen h-screen">
@@ -18,3 +16,4 @@ export const Signin = () =>{
         
     </div>
 }
+export default Signin;
